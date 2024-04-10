@@ -1,30 +1,24 @@
+DSEG    SEGMENT 'DATA' ;beginning of the data segment
 DSEG    SEGMENT 'DATA' 
     
-DSEG    ENDS
+DSEG    ENDS          ;dseg ends
 
 SSEG    SEGMENT STACK   'STACK'
         DW      100h    DUP(?)
-SSEG    ENDS
+SSEG    ENDS          ;the end of the stack segment 
 
-CSEG    SEGMENT 'CODE'
+CSEG    SEGMENT 'CODE';assigns the name CODE to the code segment
 
-;*****
-
-START   PROC    FAR
-
-; Store return address to OS:
+START   PROC    FAR   ;defines a procedure that specifies that it can access data outside its segment
     PUSH    DS
     MOV     AX, 0
     PUSH    AX
 
-; set segment registers:
-	MOV     AX, DSEG
+	MOV     AX, DSEG 
     MOV     DS, AX
     MOV     ES, AX
 
-; Copy your code here-
-
-MOV DX, 2000H
+MOV DX, 2000H    ;to enter input in 2000h is 00111110 and its hexadecimal equivalent is 03EH.
 MOV AL, 03EH
 OUT DX, AL
 
@@ -42,8 +36,6 @@ OUT DX, AL
 MOV DX, 2004H
 MOV AL, 039H
 OUT DX, AL
-
-  
 
 MOV DX, 2005H
 MOV AL, 00H
@@ -121,12 +113,12 @@ OUT DX, AL
 
 MOV DX, 2018H
 MOV AL, 07FH
-OUT DX, AL; return to operating system:
+OUT DX, AL
     RET
-  
-START   ENDP
+
+START   ENDP     ;end of the START procedure definition
        
-DELAY:
+DELAY:           ;finally the delay function is called
     MOV AX,0
     LOOP1:
 	INC AX
@@ -135,17 +127,17 @@ DELAY:
 
     RET
 
-;*****
-
 CSEG    ENDS 
 
-        END    START    ; set entry point 
-        
-;
+        END    START 
+
+
+;other code which gets input from users and represents its on the screen
+ 
  data segment 
- str1 db "Please enter a string: $" 
- str2 db 13,10,"Your string output is:$"
- Arr db 10 dup('$')
+ string1 db "Please enter a string: $"       
+ string2 db 13,10,"Your string output is:$"
+ Arr db 8 dup(0)
  ends
 
  stack segment
@@ -158,16 +150,15 @@ CSEG    ENDS
  mov ax,@data
  mov ds,ax  
 
- lea dx,str1
+ lea dx,string1
  mov ah,09h
  int 21h 
 
  mov ah,10
  lea dx,Arr
- mov arr,6
  int 21h
 
- lea dx,str2
+ lea dx,string2
  mov ah,09h
  int 21h 
 
