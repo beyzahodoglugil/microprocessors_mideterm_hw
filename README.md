@@ -13,14 +13,14 @@ Our aim with this project was to design a program that writes the text and graph
 First, we determined the purpose of the project with our teammates. Then, we decided what path we would follow, determined the steps we would take, and distributed the tasks among us. We did detailed research for these steps. We encountered some problems in the program we completed. We discussed the emerging problems among ourselves and tried to find solutions. However, we failed in some steps and could not find solutions to all the problems.
 
 # Built With
- Emu8086 Assembly Language
+ -Emu8086 Assembly Language
 
 # Developers
 
-Gizem EZER, İrem Sude MİRİK, Fidan Ezgi ÇOBAN, Naciye Beyza HODOĞLUGİL
+-Gizem EZER, İrem Sude MİRİK, Fidan Ezgi ÇOBAN, Naciye Beyza HODOĞLUGİL
 
 # Special Thanks
 
-Assoc. Prof. Dr. Mustafa Berkan BİÇER for his Microprocessors Course
-Research Assistant A. Abbas ELMAS for his Microprocessors Lab. Course
+-Assoc. Prof. Dr. Mustafa Berkan BİÇER for his Microprocessors Course
+-Research Assistant A. Abbas ELMAS for his Microprocessors Lab. Course
 
